@@ -12,14 +12,18 @@ namespace Phppride\TelegramBot\Entity;
 final class InlineQueryResultVenue
 {
     /**
-     * @param string $type Type of the result, must be venue
+     * @var string $type Type of the result, must be venue
+     */
+    private string $type = 'venue';
+
+    /**
      * @param string $id Unique identifier for this result, 1-64 Bytes
      * @param float $latitude Latitude of the venue location in degrees
      * @param float $longitude Longitude of the venue location in degrees
      * @param string $title Title of the venue
      * @param string $address Address of the venue
      * @param string|null $foursquareId Optional. Foursquare identifier of the venue if known
-     * @param string|null $foursquareType Optional. Foursquare type of the venue, if known. (For example, "arts_entertainment/default", "arts_entertainment/aquarium" or "food/icecream".)
+     * @param string|null $foursquareType Optional. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
      * @param string|null $googlePlaceId Optional. Google Places identifier of the venue
      * @param string|null $googlePlaceType Optional. Google Places type of the venue. (See supported types.)
      * @param InlineKeyboardMarkup|null $replyMarkup Optional. Inline keyboard attached to the message
@@ -30,7 +34,6 @@ final class InlineQueryResultVenue
     */
     public function __construct
     (
-         private string $type,
          private string $id,
          private float $latitude,
          private float $longitude,

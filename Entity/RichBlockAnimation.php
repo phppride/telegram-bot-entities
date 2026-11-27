@@ -12,16 +12,19 @@ namespace Phppride\TelegramBot\Entity;
 final class RichBlockAnimation
 {
     /**
-     * @param string $type Type of the block, always "animation"
+     * @var string $type Type of the block, always “animation”
+     */
+    private string $type = 'animation';
+
+    /**
      * @param Animation $animation The animation
-     * @param bool|null $hasSpoiler Optional. True, if the media preview is covered by a spoiler animation
+     * @param true|null $hasSpoiler Optional. True, if the media preview is covered by a spoiler animation
      * @param RichBlockCaption|null $caption Optional. Caption of the block
     */
     public function __construct
     (
-         private string $type,
          private Animation $animation,
-         private ?bool $hasSpoiler = null,
+         private ?true $hasSpoiler = null,
          private ?RichBlockCaption $caption = null
     ) {}
     
@@ -42,9 +45,9 @@ final class RichBlockAnimation
     }
 
     /**
-     * @return bool|null
+     * @return true|null
      */
-    public function getHasSpoiler(): ?bool
+    public function getHasSpoiler(): ?true
     {
         return $this->hasSpoiler;
     }

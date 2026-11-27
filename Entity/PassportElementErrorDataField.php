@@ -12,15 +12,18 @@ namespace Phppride\TelegramBot\Entity;
 final class PassportElementErrorDataField
 {
     /**
-     * @param string $source Error source, must be data
-     * @param string $type The section of the user's Telegram Passport which has the error, one of "personal_details", "passport", "driver_license", "identity_card", "internal_passport", "address"
+     * @var string $source Error source, must be data
+     */
+    private string $source = 'data';
+
+    /**
+     * @param string $type The section of the user's Telegram Passport which has the error, one of “personal_details”, “passport”, “driver_license”, “identity_card”, “internal_passport”, “address”
      * @param string $fieldName Name of the data field which has the error
      * @param string $dataHash Base64-encoded data hash
      * @param string $message Error message
     */
     public function __construct
     (
-         private string $source,
          private string $type,
          private string $fieldName,
          private string $dataHash,

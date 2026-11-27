@@ -12,19 +12,22 @@ namespace Phppride\TelegramBot\Entity;
 final class ChatBoostSourceGiveaway
 {
     /**
-     * @param string $source Source of the boost, always "giveaway"
+     * @var string $source Source of the boost, always “giveaway”
+     */
+    private string $source = 'giveaway';
+
+    /**
      * @param int $giveawayMessageId Identifier of a message in the chat with the giveaway; the message could have been deleted already. May be 0 if the message isn't sent yet.
      * @param User|null $user Optional. User that won the prize in the giveaway if any; for Telegram Premium giveaways only
      * @param int|null $prizeStarCount Optional. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only
-     * @param bool|null $isUnclaimed Optional. True, if the giveaway was completed, but there was no user to win the prize
+     * @param true|null $isUnclaimed Optional. True, if the giveaway was completed, but there was no user to win the prize
     */
     public function __construct
     (
-         private string $source,
          private int $giveawayMessageId,
          private ?User $user = null,
          private ?int $prizeStarCount = null,
-         private ?bool $isUnclaimed = null
+         private ?true $isUnclaimed = null
     ) {}
     
     /**
@@ -60,9 +63,9 @@ final class ChatBoostSourceGiveaway
     }
 
     /**
-     * @return bool|null
+     * @return true|null
      */
-    public function getIsUnclaimed(): ?bool
+    public function getIsUnclaimed(): ?true
     {
         return $this->isUnclaimed;
     }

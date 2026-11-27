@@ -12,14 +12,18 @@ namespace Phppride\TelegramBot\Entity;
 final class InlineQueryResultMpeg4Gif
 {
     /**
-     * @param string $type Type of the result, must be mpeg4_gif
+     * @var string $type Type of the result, must be mpeg4_gif
+     */
+    private string $type = 'mpeg4_gif';
+
+    /**
      * @param string $id Unique identifier for this result, 1-64 bytes
      * @param string $mpeg4Url A valid URL for the MPEG4 file
      * @param string $thumbnailUrl URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result
      * @param int|null $mpeg4Width Optional. Video width
      * @param int|null $mpeg4Height Optional. Video height
      * @param int|null $mpeg4Duration Optional. Video duration in seconds
-     * @param string|null $thumbnailMimeType Optional. MIME type of the thumbnail, must be one of "image/jpeg", "image/gif", or "video/mp4". Defaults to "image/jpeg".
+     * @param string|null $thumbnailMimeType Optional. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”.
      * @param string|null $title Optional. Title for the result
      * @param string|null $caption Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing
      * @param string|null $parseMode Optional. Mode for parsing entities in the caption. See formatting options for more details.
@@ -30,7 +34,6 @@ final class InlineQueryResultMpeg4Gif
     */
     public function __construct
     (
-         private string $type,
          private string $id,
          private string $mpeg4Url,
          private string $thumbnailUrl,

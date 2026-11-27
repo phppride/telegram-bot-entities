@@ -12,11 +12,15 @@ namespace Phppride\TelegramBot\Entity;
 final class InlineQueryResultDocument
 {
     /**
-     * @param string $type Type of the result, must be document
+     * @var string $type Type of the result, must be document
+     */
+    private string $type = 'document';
+
+    /**
      * @param string $id Unique identifier for this result, 1-64 bytes
      * @param string $title Title for the result
      * @param string $documentUrl A valid URL for the file
-     * @param string $mimeType MIME type of the content of the file, either "application/pdf" or "application/zip"
+     * @param string $mimeType MIME type of the content of the file, either “application/pdf” or “application/zip”
      * @param string|null $caption Optional. Caption of the document to be sent, 0-1024 characters after entities parsing
      * @param string|null $parseMode Optional. Mode for parsing entities in the document caption. See formatting options for more details.
      * @param MessageEntity[]|null $captionEntities Optional. List of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -29,7 +33,6 @@ final class InlineQueryResultDocument
     */
     public function __construct
     (
-         private string $type,
          private string $id,
          private string $title,
          private string $documentUrl,
